@@ -3,16 +3,16 @@ function displayCanvas(){
     var contextHTML = canvasHTML.getContext('2d');
     contextHTML.strokeRect(0,0,canvasHTML.width, canvasHTML.height);
 	
-    //Расчет координат центра и радиуса часов
+    
     var radiusClock = canvasHTML.width/2 - 10;
     var xCenterClock = canvasHTML.width/2;
     var yCenterClock = canvasHTML.height/2;
 	
-    //Очистка экрана. 
+    
     contextHTML.fillStyle = "#ffffff";
     contextHTML.fillRect(0,0,canvasHTML.width,canvasHTML.height);
 	
-    //Рисуем контур часов
+    
     contextHTML.strokeStyle =  "#000000";
     contextHTML.lineWidth = 1;
     contextHTML.beginPath();
@@ -21,12 +21,12 @@ function displayCanvas(){
     contextHTML.stroke();
     contextHTML.closePath();
 	
-    //Рисуем рисочки часов
-    var radiusNum = radiusClock - 10; //Радиус расположения рисочек	
+   
+    var radiusNum = radiusClock - 10; к	
     var radiusPoint;
     for(var tm = 0; tm < 60; tm++){
 	  contextHTML.beginPath();
-	  if(tm % 5 == 0){radiusPoint = 5;}else{radiusPoint = 2;} //для выделения часовых рисочек
+	  if(tm % 5 == 0){radiusPoint = 5;}else{radiusPoint = 2;} 
 	  var xPointM = xCenterClock + radiusNum * Math.cos(-6*tm*(Math.PI/180) + Math.PI/2);
 	  var yPointM = yCenterClock - radiusNum * Math.sin(-6*tm*(Math.PI/180) + Math.PI/2);
 	  contextHTML.arc(xPointM, yPointM, radiusPoint, 0, 2*Math.PI, true);
@@ -34,7 +34,7 @@ function displayCanvas(){
 	  contextHTML.closePath();
     } 
 	
-    //Оцифровка циферблата часов
+    
     for(var th = 1; th <= 12; th++){
 	contextHTML.beginPath();
 	contextHTML.font = 'bold 25px sans-serif';
@@ -50,7 +50,7 @@ function displayCanvas(){
     }
 
 	
-    //Рисуем стрелки
+   
     var lengthSeconds = radiusNum - 10;
     var lengthMinutes = radiusNum - 15;
     var lengthHour = lengthMinutes / 1.5;
@@ -59,7 +59,7 @@ function displayCanvas(){
     var t_min = 6*(d.getMinutes() + (1/60)*d.getSeconds()); //Определяем угол для минут
     var t_hour = 30*(d.getHours() + (1/60)*d.getMinutes()); //Определяем угол для часов
 	
-    //Рисуем секунды
+   
     contextHTML.beginPath();
     contextHTML.strokeStyle =  "#FF0000";
     contextHTML.moveTo(xCenterClock, yCenterClock);
@@ -68,7 +68,7 @@ function displayCanvas(){
     contextHTML.stroke();
     contextHTML.closePath();
 
-    //Рисуем минуты
+    
     contextHTML.beginPath();
     contextHTML.strokeStyle =  "#000000";
     contextHTML.lineWidth = 3;
@@ -78,7 +78,6 @@ function displayCanvas(){
     contextHTML.stroke();
     contextHTML.closePath();
 
-    //Рисуем часы
     contextHTML.beginPath();
     contextHTML.lineWidth = 5;
     contextHTML.moveTo(xCenterClock, yCenterClock);
@@ -87,7 +86,7 @@ function displayCanvas(){
     contextHTML.stroke();
     contextHTML.closePath();	
 	
-    //Рисуем центр часов
+   
     contextHTML.beginPath();
     contextHTML.strokeStyle =  "#000000";
     contextHTML.fillStyle = "#ffffff";
