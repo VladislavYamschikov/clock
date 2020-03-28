@@ -1,7 +1,13 @@
-#clock{
-    font-family:Tahoma, sans-serif;
-    font-size:20px;
-    font-weight:bold;
-    color:#0000cc;	
-  }
-  
+body {
+    height: 10em;
+    position: relative ;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+
+}
+#clock {
+    visibility: hidden;
+}
